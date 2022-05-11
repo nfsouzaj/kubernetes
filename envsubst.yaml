@@ -1,0 +1,15 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  labels:
+    role: vote
+  name: test
+spec:
+  containers:
+  - image: nginx:alpine
+    name: test
+    ports:
+      - containerPort: $PORT
+
+# export PORT=80
+# envsubst < test.yaml | kubectl apply -f -
