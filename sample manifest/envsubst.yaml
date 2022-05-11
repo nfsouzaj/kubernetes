@@ -8,8 +8,15 @@ spec:
   containers:
   - image: nginx:alpine
     name: test
+    resources:
+      requests:
+        cpu: 50m
+        memory: 100Mi
+      limits:
+        cpu: 100m
+        memory: 200Mi
     ports:
-      - containerPort: $PORT
+      - containerPort: ${PORT}
 
 # export PORT=80
 # envsubst < test.yaml | kubectl apply -f -
